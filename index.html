@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CVR ACM Student Chapter</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="device-overlay" id="deviceOverlay">
+    <div class="device-message">
+      <h2>Best Viewed on Laptop</h2>
+      <p>
+        For full 3D visuals and advanced animations,<br>
+        please open this website on a desktop or laptop.
+      </p>
+      <button class="continue-btn" id="continueBtn">
+        Continue Anyway
+      </button>
+    </div>
+  </div>
+
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="acm-badge">
+        <img src="logo.jpeg" class="nav-logo-img" alt="ACM CVR Logo">
+      </div>
+      <span>CVR · ACM</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#team">Team</a>
+      <a href="#domains">Domains</a>
+      <a href="#join">Join</a>
+
+    </div>
+    <button class="nav-cta">Join Us</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero-eyebrow">CVR College of Engineering · Hyderabad</div>
+    <h1 class="hero-title">
+      <span class="highlight">ACM <br> Student <br> Chapter</span>
+    </h1>
+    <p class="hero-sub">
+      Advancing Computing as a Science & Profession. We build skills, spark curiosity, and forge the next generation of engineers — one algorithm at a time.
+    </p>
+    <div class="hero-actions">
+    <a href="https://www.acm.org/about-acm/about-the-acm-organization" target="_blank" class="btn-ghost">
+      Learn More
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </svg>
+    </a>
+    </div>
+
+  <!-- 3D WIREFRAME SPHERE -->
+  <div class="sphere-container">
+
+    <!-- Rotating Globe -->
+    <div class="sphere">
+      <div class="circle"></div>
+      <div class="circle rotate-x"></div>
+      <div class="circle rotate-y"></div>
+    </div>
+
+    <!-- TEXT (separate from sphere) -->
+    <div class="sphere-text">
+        <span class="text-front">ACM</span>
+        <span class="text-back">CVR</span>
+    </div>
+
+  </div>
+    
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item"><span class="dot"></span> Hackathons</div>
+      <div class="ticker-item"><span class="dot"></span> Workshops</div>
+      <div class="ticker-item"><span class="dot"></span> Coding Contests</div>
+      <div class="ticker-item"><span class="dot"></span> Guest Lectures</div>
+      <div class="ticker-item"><span class="dot"></span> Project Showcases</div>
+      <div class="ticker-item"><span class="dot"></span> Industry Talks</div>
+      <div class="ticker-item"><span class="dot"></span> Open Source Sprints</div>
+      <div class="ticker-item"><span class="dot"></span> Research Colloquia</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+      <div class="about-visual reveal">
+        <div class="acm-ring">
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <div class="acm-core">
+              <img src="logo.jpeg" class="center-logo" alt="ACM CVR Logo">
+          </div>
+
+
+
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-heading">Powered by curiosity, built by code</h2>
+        <p class="desc">
+          The CVR College ACM Student Chapter is the official student branch of the Association for Computing Machinery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+
+      <div class="section-label reveal">Events</div>
+      <h2 class="section-heading reveal">
+        Explore Our Events & Activities
+      </h2>
+
+      <p class="events-intro reveal">
+        Discover our upcoming registrations or relive memorable moments from our past ACM events.
+      </p>
+
+      <div class="events-options reveal">
+
+        <a href="registrations.html" class="event-option-card">
+          <div class="option-title">Registrations</div>
+          <div class="option-desc">
+            Register for upcoming hackathons, workshops and technical programs.
+          </div>
+        </a>
+
+        <a href="gallery.html" class="event-option-card">
+          <div class="option-title">Gallery</div>
+          <div class="option-desc">
+            Explore highlights and memories from our past ACM events.
+          </div>
+        </a>
+
+      </div>
+
+    </section>
+
+  <!-- FACULTY COORDINATOR -->
+  <section id="faculty" class="faculty-section">
+
+    <div class="section-label reveal">Faculty Coordinator</div>
+    <h2 class="section-heading reveal">Guided by Experience</h2>
+
+    <div class="faculty-container reveal">
+
+      <!-- LEFT: IMAGE -->
+      <div class="faculty-image">
+        <img src="lakshmi_madam.webp" alt="Dr. Lakshmi H.N">
+      </div>
+
+      <!-- RIGHT: DETAILS -->
+      <div class="faculty-details">
+        <h3 class="faculty-name">Dr. Lakshmi H.N</h3>
+        <div class="faculty-degree">M.S., Ph.D.</div>
+        <div class="faculty-role">Associate Dean, Emerging Technologies</div>
+
+        <p class="faculty-desc">
+          Dr. Lakshmi H.N serves as the Faculty Coordinator of the ACM Student Chapter at CVR College of Engineering. 
+          With extensive experience in emerging technologies and academic leadership, she mentors students in research, 
+          innovation, and professional development, guiding them towards excellence in computing and technology.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STUDENT COORDINATORS -->
+  <section id="team" class="coordinators-section">
+
+    <div class="section-label reveal">Student Coordinators</div>
+    <h2 class="section-heading reveal">Community Structure</h2>
+
+    <div class="community-structure">
+
+      <!-- ================= CORE COMMUNITY ================= -->
+      <div class="core-community reveal">
+        <h3 class="community-title">Core Community</h3>
+
+        <div class="section-connector">
+          <div class="v-line"></div>
+          <div class="h-line"></div>
+          <div class="end-line left"></div>
+          <div class="end-line right"></div>
+        </div>
+
+        <div class="core-grid">
+
+          <!-- CARD 1 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/nidhi.jpg" alt="Nidhi Varma">
+              </div>
+              <div class="flip-card-back">
+                <h3>P. Nidhi Varma</h3>
+                <p>Chair</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/chandrika.jpg" alt="Chandrika">
+              </div>
+              <div class="flip-card-back">
+                <h3>M. Chandrika</h3>
+                <p>Vice-Chair</p>
+                <p>CSE</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/bala aditya.jpeg" alt="Bala Aditya">
+              </div>
+              <div class="flip-card-back">
+                <h3>Bala Aditya</h3>
+                <p>Treasurer</p>
+                <p>CSE (CS)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/hima.jpeg" alt="Hima Sanjana">
+              </div>
+              <div class="flip-card-back">
+                <h3>M. Hima Sanjana</h3>
+                <p>Secretary</p>
+                <p>CSE (DS)</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= CONNECTOR ================= -->
+      <div class="branch-connector">
+        <div class="vertical-line"></div>
+      </div>
+
+      <!-- ================= LEADS & CO-LEADS ================= -->
+      <div class="leads-community reveal">
+        <h3 class="community-title">Leads & Co-Leads</h3>
+
+        <div class="section-connector">
+          <div class="v-line"></div>
+          <div class="h-line"></div>
+          <div class="end-line left"></div>
+          <div class="end-line right"></div>
+        </div>
+
+        <div class="leads-grid">
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/chaitanya.jpg" alt="Chaitanya">
+              </div>
+              <div class="flip-card-back">
+                <h3>K. Sai Chaitanya Varma</h3>
+                <p>Web Master</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/kartheek.jpeg" alt="Kartheek">
+              </div>
+              <div class="flip-card-back">
+                <h3>T. Kartheek</h3>
+                <p>Web Master</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/komal.jpeg" alt="Komal Sai">
+              </div>
+              <div class="flip-card-back">
+                <h3>R. Komal Sai</h3>
+                <p>Membership Chair</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/sriyanjali.jpg" alt="Sriyanjali">
+              </div>
+              <div class="flip-card-back">
+                <h3>T. Sriyanjali</h3>
+                <p>Membership Chair</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/raghu.JPG.jpg" alt="Raghu">
+              </div>
+              <div class="flip-card-back">
+                <h3>G. Raghu Sharan</h3>
+                <p>Social Media</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/rahul.png" alt="Rahul">
+              </div>
+              <div class="flip-card-back">
+                <h3>B. Rahul Reddy</h3>
+                <p>Social Media</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/rajeevi.jpg" alt="Rajeevi">
+              </div>
+              <div class="flip-card-back">
+                <h3>Rajeevi Madhireddy</h3>
+                <p>Technical Head</p>
+                <p>CSE</p>
+              </div>
+            </div>
+          </div> 
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/hanish.png" alt="Hanish">
+              </div>
+              <div class="flip-card-back">
+                <h3>G. Hanish</h3>
+                <p>Technical Head</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/ozas.jpeg" alt="Ozas">
+              </div>
+              <div class="flip-card-back">
+                <h3>Ozas Dixit</h3>
+                <p>Technical Head</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/lahari.jpeg" alt="Lahari">
+              </div>
+              <div class="flip-card-back">
+                <h3>S. Lahari</h3>
+                <p>Documentation</p>
+                <p>CSE (DS)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/srinidhi.jpg" alt="Srinidhi">
+              </div>
+              <div class="flip-card-back">
+                <h3>E. Srinidhi</h3>
+                <p>Documentation</p>
+                <p>Co-Lead</p>
+                <p>CSE (DS)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/navadeep.jpg" alt="Navadeep">
+              </div>
+              <div class="flip-card-back">
+                <h3>B. Navadeep</h3>
+                <p>Coding Head</p>
+                <p>CSE (DS)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/sankeerth.jpg" alt="Sankeerth Reddy">
+              </div>
+              <div class="flip-card-back">
+                <h3>K. Sankeerth Reddy</h3>
+                <p>Coding Head</p>
+                <p>Co-Lead</p>
+                <p>CSE (AI & ML)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="students/tejasvvi.jpg" alt="Tejasvvi">
+              </div>
+              <div class="flip-card-back">
+                <h3>S. Tejasvvi</h3>
+                <p>Events & PR</p>
+                <p>CSE (DS)</p>
+              </div>
+            </div>
+          </div>  
+
+          
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section id="domains">
+    <div class="section-label reveal">Technical Domains</div>
+    <h2 class="section-heading reveal">Pick your path.</h2>
+    <div class="domains-grid">
+      <div class="domain-cell reveal">
+        <div class="domain-icon">🤖</div>
+        <div class="domain-name">Artificial Intelligence</div>
+        <div class="domain-desc">Machine learning and AI projects.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join" class="join-section">
+    <div class="section-label reveal">Membership</div>
+    <h2 class="section-heading reveal">Ready to compute your future?</h2>
+    <div class="join-form reveal">
+      <a href="https://services.acm.org/public/qj/proflevel/proflevel_control.cfm?level=3&country=India&form_type=Student&promo=LEVEL&pay=DD" class="btn-primary join-btn" target="_blank">Join Now</a>
+    </div>
+
+  </section>
+
+  <!-- ================= CONTACT US ================= -->
+  <section class="contact-clean-section" id="contact">
+
+  <div class="section-label">Contact Us</div>
+  <h2 class="section-heading">Stay Connected.</h2>
+
+  <div class="contact-box">
+    <p class="contact-text">
+      For collaborations, queries, or membership details, reach out to us at
+    </p>
+
+    <a href="mailto:acmcvrsc@gmail.com" class="contact-email">
+      acmcvrsc@gmail.com
+    </a>
+  </div>
+
+</section>
+
+    <footer>
+  <div class="footer-left">
+    <div class="footer-brand">CVR ACM Student Chapter</div>
+    <div class="footer-sub">CVR College of Engineering · Hyderabad</div>
+  </div>
+
+  <div class="footer-right">
+    <a href="https://instagram.com/acm_cvr" target="_blank" class="social-btn">Instagram</a>
+    <a href="https://linkedin.com/company/YOUR_PAGE" target="_blank" class="social-btn">LinkedIn</a>
+    <a href="https://github.com/YOUR_ORG" target="_blank" class="social-btn">GitHub</a>
+  </div>
+</footer>
+  </section>
+  <script src="script.js"></script>
+
+</body>
+</html>

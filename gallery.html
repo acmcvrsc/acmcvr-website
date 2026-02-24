@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery - Under Construction</title>
+
+<style>
+:root{
+  --bg:#020a0f;
+  --accent:#00c8ff;
+  --metal1:#b0bec5;
+  --metal2:#78909c;
+}
+
+
+
+body{
+  margin:0;
+  height:100vh;
+  background:var(--bg);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  overflow:hidden;
+  font-family:'CG Omega', sans-serif;
+}
+
+/* TECH GRID BACKGROUND */
+body::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,200,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,255,0.05) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+
+/* TITLE */
+h1{
+  color:var(--accent);
+  font-size:2.2rem;
+  letter-spacing:0.15em;
+  text-shadow:0 0 25px rgba(0,200,255,0.8);
+  margin-bottom:60px;
+}
+
+/* SCENE */
+.scene{
+  position:relative;
+  width:400px;
+  height:300px;
+}
+
+/* GEAR BASE STYLE */
+.gear{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--metal1), var(--metal2));
+  box-shadow:
+    inset -6px -6px 15px rgba(0,0,0,0.5),
+    inset 6px 6px 15px rgba(255,255,255,0.2),
+    0 0 30px rgba(0,200,255,0.3);
+}
+
+/* TEETH EFFECT */
+.gear::before{
+  content:'';
+  position:absolute;
+  inset:-12px;
+  border-radius:50%;
+  background:
+    repeating-conic-gradient(
+      var(--metal2) 0deg 8deg,
+      transparent 8deg 16deg
+    );
+  mask: radial-gradient(circle, transparent 60%, black 61%);
+}
+
+/* CENTER HOLE */
+.gear::after{
+  content:'';
+  position:absolute;
+  width:30%;
+  height:30%;
+  background:#111;
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* MAIN GEAR */
+.gear-main{
+  width:160px;
+  height:160px;
+  left:120px;
+  top:70px;
+  animation:spinClock 8s linear infinite;
+}
+
+/* SMALL GEAR 1 */
+.gear-small1{
+  width:100px;
+  height:100px;
+  left:40px;
+  top:110px;
+  animation:spinAnti 6s linear infinite;
+}
+
+/* SMALL GEAR 2 */
+.gear-small2{
+  width:80px;
+  height:80px;
+  right:40px;
+  top:40px;
+  animation:spinAnti 5s linear infinite;
+}
+
+#sparkCanvas{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+/* ANIMATIONS */
+@keyframes spinClock{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes spinAnti{
+  from{ transform:rotate(360deg); }
+  to{ transform:rotate(0deg); }
+}
+
+/* SUBTEXT */
+.sub{
+  margin-top:40px;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:#90caf9;
+  opacity:0.8;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+  margin-top:30px;
+  padding:0.8rem 2rem;
+  border:1px solid rgba(0,200,255,0.4);
+  color:var(--accent);
+  text-decoration:none;
+  font-size:0.75rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  transition:0.3s ease;
+  border-radius:4px;
+  position:relative;
+  z-index:10;
+}
+
+.back-btn:hover{
+  background:rgba(0,200,255,0.1);
+  box-shadow:
+    0 0 20px rgba(0,200,255,0.6),
+    0 0 40px rgba(0,200,255,0.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>GALLERY UNDER CONSTRUCTION</h1>
+
+<div class="scene">
+  <div class="gear gear-main"></div>
+  <div class="gear gear-small1"></div>
+  <div class="gear gear-small2"></div>
+  <canvas id="sparkCanvas"></canvas>
+</div>
+
+<div class="sub">SYSTEM ASSEMBLING...</div>
+
+<script>
+const canvas = document.getElementById("sparkCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = canvas.parentElement.offsetWidth;
+canvas.height = canvas.parentElement.offsetHeight;
+
+let sparks = [];
+
+function getSparkOrigin(){
+  return {
+    x: canvas.width * 0.75,   
+    y: canvas.height * 0.30  
+  };
+}
+
+function createSparks(){
+  const origin = getSparkOrigin();
+
+  for(let i=0;i<20;i++){
+    sparks.push({
+      x: origin.x,
+      y: origin.y,
+      vx: (Math.random()-0.5)*6,
+      vy: (Math.random()-0.5)*6,
+      life: 50,
+      size: Math.random()*2+1
+    });
+  }
+}
+
+function updateSparks(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  for(let i=sparks.length-1; i>=0; i--){
+    const s = sparks[i];
+
+    s.x += s.vx;
+    s.y += s.vy;
+    s.vy += 0.08;
+    s.life--;
+
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI*2);
+
+    ctx.fillStyle = "rgba(255,255,255," + (s.life/50) + ")";
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#00c8ff";
+    ctx.fill();
+
+    if(s.life <= 0){
+      sparks.splice(i,1);
+    }
+  }
+
+  requestAnimationFrame(updateSparks);
+}
+
+setInterval(()=>{
+  if(Math.random() > 0.4){
+    createSparks();
+  }
+}, 700);
+
+updateSparks();
+
+window.addEventListener("resize", ()=>{
+  canvas.width = canvas.parentElement.offsetWidth;
+  canvas.height = canvas.parentElement.offsetHeight;
+});
+</script>
+<a href="index.html#events" class="back-btn">
+  ← Back to Events
+</a>
+
+</body>
+</html>
