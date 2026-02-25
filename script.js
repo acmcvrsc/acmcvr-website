@@ -9,30 +9,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!overlay) return;
 
-  const isMobile = /Mobi|Android|iPhone|iPad|Tablet/i.test(navigator.userAgent);
+  /* Show only on small screens */
+  const isSmallScreen = window.innerWidth <= 900;
 
-  /* If already accepted before → never show again */
+  /* Already accepted → never show */
   if (localStorage.getItem("deviceAccepted") === "true") {
     overlay.style.display = "none";
     return;
   }
 
-  if (isMobile) {
+  if (isSmallScreen) {
 
-    if (continueBtn) {
-      continueBtn.addEventListener("click", function () {
+    continueBtn?.addEventListener("click", function () {
 
-        overlay.classList.add("zoom-out");
+      overlay.classList.add("zoom-out");
 
-        /* Save acceptance */
-        localStorage.setItem("deviceAccepted", "true");
+      localStorage.setItem("deviceAccepted", "true");
 
-        setTimeout(() => {
-          overlay.style.display = "none";
-        }, 900);
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 900);
 
-      });
-    }
+    });
 
   } else {
     overlay.style.display = "none";
