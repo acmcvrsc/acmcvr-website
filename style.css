@@ -1643,12 +1643,19 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* 3 per row */
-  .core-grid,
+  /* Core community → 2 per row */
+  .core-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Keep leads as they are (3 per row) */
   .leads-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+
+}
 
   /* Disable flipping */
   .flip-card {
