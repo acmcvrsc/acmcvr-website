@@ -1649,15 +1649,13 @@ footer {
     gap: 1rem;
   }
 
-  /* Keep leads as they are (3 per row) */
+  /* Leads grid */
   .leads-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
-}
-
-  /* Disable flipping */
+  /* Disable flipping ONLY on mobile */
   .flip-card {
     width: 100%;
     height: auto;
@@ -1665,16 +1663,12 @@ footer {
   }
 
   .flip-card-inner {
-    transform: none !important;
+    transform: none;
+    transition: none;
   }
 
   .flip-card:hover .flip-card-inner {
-    transform: none !important;
-  }
-
-  /* Hide the back side */
-  .flip-card-back {
-    display: none;
+    transform: none;
   }
 
   /* Make front card compact */
@@ -1691,7 +1685,7 @@ footer {
     object-fit: cover;
   }
 
-  /* Create bottom info panel using back content */
+  /* Bottom gradient */
   .flip-card-front::after {
     content: "";
     position: absolute;
@@ -1707,11 +1701,7 @@ footer {
     );
   }
 
-  /* Show back content as overlay */
-  .flip-card-inner {
-    position: relative;
-  }
-
+  /* Show info overlay */
   .flip-card-back {
     display: flex;
     position: absolute;
@@ -1730,13 +1720,11 @@ footer {
   .flip-card-back h3 {
     font-size: 0.6rem;
     margin: 0;
-    color: var(--accent);
   }
 
   .flip-card-back p {
     font-size: 0.55rem;
     margin: 0;
-    color: var(--muted);
   }
 
 }
