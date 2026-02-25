@@ -1,5 +1,5 @@
 /* =========================================================
-   MOBILE OVERLAY – FADE IN ANIMATION
+   MOBILE OVERLAY – FADE IN ANIMATION (WITH MEMORY)
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,12 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isMobile = /Mobi|Android|iPhone|iPad|Tablet/i.test(navigator.userAgent);
 
+  /* If already accepted before → never show again */
+  if (localStorage.getItem("deviceAccepted") === "true") {
+    overlay.style.display = "none";
+    return;
+  }
+
   if (isMobile) {
 
     if (continueBtn) {
       continueBtn.addEventListener("click", function () {
 
         overlay.classList.add("zoom-out");
+
+        /* Save acceptance */
+        localStorage.setItem("deviceAccepted", "true");
 
         setTimeout(() => {
           overlay.style.display = "none";
