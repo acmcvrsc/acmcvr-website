@@ -1045,7 +1045,7 @@ footer {
 
 .flip-card {
   width: 220px;
-  height: 300px;   
+  height: 300px;   /* better for portrait posters */
 }
 
 .flip-card-inner {
@@ -1551,133 +1551,52 @@ footer {
 }
 
 
-@media (max-width: 600px){
-  .coordinators-grid{
-    grid-template-columns:1fr;
+@media (max-width: 768px){
+
+  .core-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
+
+  .leads-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .flip-card{
+    width: 100%;
+    max-width: 160px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .flip-card-front img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
 }
 
 
-/* =========================================================
-   MOBILE FIX – ABOUT SECTION ALIGNMENT
-========================================================= */
-
+/* MOBILE FIX – ABOUT SECTION ALIGNMENT */
 @media (max-width: 768px) {
-
-  /* Stack properly */
   .about {
     grid-template-columns: 1fr !important;
     text-align: center;
   }
 
-  /* Remove side gap */
   .about-visual,
   .about-text {
     width: 100%;
   }
 
-  /* Center the ring properly */
   .acm-ring {
     margin: 0 auto 2rem auto;
   }
 
-  /* Prevent overflow */
   .about-visual {
     overflow: hidden;
   }
-
-}
-
-/* =========================================================
-   MOBILE STUDENT COORDINATORS FIX
-========================================================= */
-
-@media (max-width: 768px) {
-
-  /* Core community → 2 per row */
-  .core-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  /* Leads grid */
-  .leads-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  /* Disable flipping ONLY on mobile */
-  .flip-card {
-    width: 100%;
-    height: auto;
-    perspective: none;
-  }
-
-  .flip-card-inner {
-    transform: none;
-    transition: none;
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: none;
-  }
-
-  /* Make front card compact */
-  .flip-card-front {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .flip-card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;     
-  object-position: center top;
-  background: #020a0f;     
-}
-
-  /* Bottom gradient */
-  .flip-card-front::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 65px;
-    background: linear-gradient(
-      to top,
-      rgba(5,16,24,0.95),
-      rgba(5,16,24,0.7),
-      transparent
-    );
-  }
-
-  /* Show info overlay */
-  .flip-card-back {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 65px;
-    width: 100%;
-    transform: none;
-    background: none;
-    padding: 0.5rem;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-  }
-
-  .flip-card-back h3 {
-    font-size: 0.6rem;
-    margin: 0;
-  }
-
-  .flip-card-back p {
-    font-size: 0.55rem;
-    margin: 0;
-  }
-
 }
