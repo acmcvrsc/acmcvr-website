@@ -1743,6 +1743,227 @@ footer {
 }
 
 
+/* =====================================================
+   MACBOOK FORM MOCKUP
+===================================================== */
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.macbook-mock {
+  width: 100%;
+  max-width: 760px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.macbook-screen {
+  width: 90%;
+  aspect-ratio: 16/10;
+  background: #000;
+  border-radius: 20px 20px 0 0;
+  padding: 14px 14px 20px 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border: 1px solid #3a3a3a;
+  border-bottom: none;
+}
+
+.macbook-screen::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #111;
+  border-radius: 50%;
+  border: 1px solid #222;
+}
+
+.mail-window {
+  width: 100%;
+  height: 100%;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 200, 255, 0.03);
+}
+
+.mail-header {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border);
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.mac-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mac-dots .dot-red { background: #ff5f56; }
+.mac-dots .dot-yellow { background: #ffbd2e; }
+.mac-dots .dot-green { background: #27c93f; }
+
+.mail-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mail-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+}
+
+.mail-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.6rem 0;
+  gap: 1rem;
+}
+
+.mail-row label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  width: 60px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.mail-row input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  width: 100%;
+  outline: none;
+}
+
+.mail-row input[readonly] {
+  color: var(--accent);
+}
+
+.mail-row input::placeholder, .mail-body-row textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.mail-body-row {
+  flex: 1;
+  margin-top: 1rem;
+  display: flex;
+}
+
+.mail-body-row textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  outline: none;
+  line-height: 1.5;
+}
+
+.mail-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mail-send-btn {
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.mail-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 200, 255, 0.3);
+}
+
+.macbook-base {
+  width: 100%;
+  height: 12px;
+  background: #a1a1a6;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid #5a5a5d;
+}
+
+.macbook-base .notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 6px;
+  background: #4a4a4c;
+  border-radius: 0 0 6px 6px;
+}
+
+/* MacBook Responsive styling */
+@media (max-width: 600px) {
+  .macbook-screen {
+    width: 96%;
+    aspect-ratio: 1.3/1;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 10px 14px 10px;
+  }
+  
+  .mail-row label {
+    width: 45px;
+  }
+}
+
+
+
 /* MOBILE FIX – ABOUT SECTION ALIGNMENT */
 @media (max-width: 768px) {
   .about {

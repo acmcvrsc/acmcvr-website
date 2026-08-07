@@ -196,3 +196,57 @@ if (canvas) {
   });
 
 }
+
+
+/* =========================================================
+   CONTACT FORM FORMSPREE SUBMISSION (AJAX)
+========================================================= */
+
+function sendMail(event) {
+  event.preventDefault();
+  
+  const submitBtn = document.getElementById('mail-submit-btn');
+  const originalBtnContent = submitBtn.innerHTML;
+  
+  // Update button status
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span>Sending...</span>';
+
+  fetch('https://formspree.io/f/xzepznvq', {
+    method: 'POST',
+    body: new FormData(event.target),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Hide form, show success screen
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('mail-success').style.display = 'flex';
+      // Reset form
+      document.getElementById('contact-form').reset();
+    } else {
+      response.json().then(data => {
+        if (Object.hasOwn(data, 'errors')) {
+          alert(data["errors"].map(error => error["message"]).join(", "));
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      });
+    }
+  })
+  .catch(error => {
+    alert("There was a network error. Please check your connection and try again.");
+  })
+  .finally(() => {
+    // Restore button status
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnContent;
+  });
+}
+
+function resetMailForm() {
+  document.getElementById('mail-success').style.display = 'none';
+  document.getElementById('contact-form').style.display = 'flex';
+}

@@ -460,21 +460,80 @@
 
   <!-- ================= CONTACT US ================= -->
   <section class="contact-clean-section" id="contact">
+    <div class="section-label">Contact Us</div>
+    <h2 class="section-heading">Stay Connected.</h2>
 
-  <div class="section-label">Contact Us</div>
-  <h2 class="section-heading">Stay Connected.</h2>
+    <div class="contact-container">
+      <!-- MacBook Mockup -->
+      <div class="macbook-mock">
+        <!-- Screen Bezel -->
+        <div class="macbook-screen">
+          <!-- Mail Client Window -->
+          <div class="mail-window">
+            <div class="mail-header">
+              <div class="mac-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="mail-title">New Message</div>
+            </div>
+            
+            <!-- Success Screen (Hidden by default) -->
+            <div class="mail-success-screen" id="mail-success" style="display: none; flex: 1; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; color: #fff;">
+              <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #00c8ff; text-shadow: 0 0 15px rgba(0, 200, 255, 0.4);">✓</div>
+              <h3 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff;">Message Transmitted!</h3>
+              <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.5; max-width: 320px;">
+                Your message has been processed successfully. We will get back to you shortly at the email address provided.
+              </p>
+              <button type="button" onclick="resetMailForm()" style="margin-top: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: #fff; padding: 0.6rem 1.4rem; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 0.75rem; cursor: pointer; transition: 0.3s;">Compose New</button>
+            </div>
 
-  <div class="contact-box">
-    <p class="contact-text">
-      For collaborations, queries, or membership details, reach out to us at
-    </p>
+            <form class="mail-form" id="contact-form" onsubmit="sendMail(event)">
+              <div class="mail-row">
+                <label for="mail-to">To:</label>
+                <input type="email" id="mail-to" value="cvracmsc@gmail.com" readonly>
+              </div>
+              
+              <div class="mail-row">
+                <label for="mail-from">From:</label>
+                <input type="email" id="mail-from" name="email" placeholder="your.email@example.com" required>
+              </div>
 
-    <a href="mailto:acmcvrsc@gmail.com" class="contact-email">
-      acmcvrsc@gmail.com
-    </a>
-  </div>
+              <div class="mail-row">
+                <label for="mail-name">Name:</label>
+                <input type="text" id="mail-name" name="name" placeholder="Your Name" required>
+              </div>
 
-</section>
+              <div class="mail-row">
+                <label for="mail-subject">Subject:</label>
+                <input type="text" id="mail-subject" name="subject" placeholder="Collaboration / Membership Inquiry" required>
+              </div>
+
+              <div class="mail-body-row">
+                <textarea id="mail-message" name="message" placeholder="Type your message details here..." required></textarea>
+              </div>
+
+              <div class="mail-footer">
+                <button type="submit" class="mail-send-btn" id="mail-submit-btn">
+                  <span>Send</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Laptop Base -->
+        <div class="macbook-base">
+          <div class="notch"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <footer>
   <div class="footer-left">
