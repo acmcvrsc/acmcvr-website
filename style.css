@@ -1040,27 +1040,43 @@ footer {
 }
 
 /* =====================================================
-   IMAGE-ONLY CARDS (NO FLIP)
+   3D FLIP CARDS WITH METADATA
 ===================================================== */
 
 .flip-card {
   width: 220px;
-  height: 300px;   /* better for portrait posters */
+  height: 300px;
+  perspective: 1000px; /* Enable 3D perspective */
+  margin: 0 auto;
 }
 
 .flip-card-inner {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
-.flip-card-front {
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  backface-visibility: hidden; /* Hide back side during flip */
   border-radius: 12px;
-  overflow: hidden;
   border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.flip-card-front {
   background: var(--surface);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front {
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.35);
 }
 
 .flip-card-front img {
@@ -1069,13 +1085,130 @@ footer {
   object-fit: cover;
 }
 
-.flip-card-front:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(0,200,255,0.25);
+/* Glassmorphic Name Overlay on Front */
+.card-name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(2, 10, 15, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(0, 200, 255, 0.2);
+  color: #fff;
+  padding: 0.8rem 0.5rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
 .flip-card-back {
-  display: none;
+  background: linear-gradient(135deg, #020a0f 0%, #001a24 100%);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  box-shadow: inset 0 0 20px rgba(0, 200, 255, 0.15);
+  z-index: 1;
+}
+
+.flip-card-back h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.flip-card-back p {
+  margin: 0;
+}
+
+.flip-card-back p.role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(0, 200, 255, 0.05);
+}
+
+.flip-card-back p.dept {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.flip-card-back p.acm-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.5rem;
+  width: 80%;
+}
+
+/* Branched Team Section Styles */
+.team-branches {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+}
+
+.branch-group {
+  position: relative;
+  width: 100%;
+}
+
+.branch-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sub-branch {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.sub-branch-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* =====================================================
@@ -1575,6 +1708,36 @@ footer {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+  }
+
+  .card-name-overlay {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.2rem;
+  }
+
+  .flip-card-back {
+    padding: 0.8rem;
+  }
+
+  .flip-card-back h4 {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .flip-card-back p.role {
+    font-size: 0.55rem;
+    padding: 0.1rem 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .flip-card-back p.dept {
+    font-size: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .flip-card-back p.acm-id {
+    font-size: 0.5rem;
+    padding-top: 0.3rem;
   }
 
 }
